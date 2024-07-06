@@ -8,8 +8,8 @@ module.exports = function (controller) {
     
     flow.addMessage(JSON.stringify({
         "type":"message",
-        "section":"medicamento",
-        "body":"não podemos passar receita, consulte um medico"
+        "section":"cadastro",
+        "body":"informações para o cadastro" //esperar conversa com o pessoal da upa 
     }))
     
     flow.after(async (response, bot) => {

@@ -4,23 +4,19 @@ module.exports = function (controller) {
     const flow = new BotkitConversation("info", controller);
     // const nlu = require('../scripts/nlu.js');  flow.after(async (response, bot) => {
         flow.addAction("info")
-
-        flow.addMessage(JSON.stringify({
-          "type": "message",
-          "section": "info",
-          "body": "o que quer saber"
-        }),
-          "info")
       
         flow.addQuestion(JSON.stringify({
           "type": "question",
           "section": "info",
-          "body": "Que tipo de info quer saber   ?"
+          "body": "Que tipo de info quer saber ?"
         }),
         async(response, flow, bot)=>{
             if(response == "medicamento"){
                 await bot.cancelAllDialogs();
                 await bot.beginDialog("medicamento");
+            }if(response == "local"){
+              await bot.cancelAllDialogs();
+              await bot.beginDialog("local")
             }
         },"info_response"
         /*onde fica a resposta do usuario*/, "info"

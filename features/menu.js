@@ -5,8 +5,8 @@ module.exports = function (controller) {
   const flow = new BotkitConversation("menu", controller);
   // const nlu = require('../scripts/nlu.js');
 
-  flow.addAction("intro")
 
+  flow.addAction("intro")
 
   flow.addMessage(JSON.stringify({
     "type": "message",
@@ -40,8 +40,8 @@ module.exports = function (controller) {
         await bot.beginDialog("info")
       }
     },
-    "escolhaMenu",
-    "menuInicial")
+    "escolhaMenu" /*variavel que segura a resposta do usuario*/,
+    "menuInicial"/*onde a pergunta esta sendo referenciada*/)
 
 
   flow.after(async (response, bot) => {

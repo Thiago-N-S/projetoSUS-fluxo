@@ -18,8 +18,14 @@ module.exports = function (controller) {
     "type": "question",
     "section": "Agendamento",
     "body": "Que tipo de agendamento quer fazer hoje?"
+    //verificar as especialidades disponiveis na unidade 
   }),
-    async (response, flow, bot) => { },
+    async (response, flow, bot) => {
+      if(response == "pediatra"){
+        bot.say("ok, vamos iniciar o agendamento para Pediatria" )
+        //acessar o banco de dados e fazer a integração com os horarios disponiveis
+      }
+     },
     "agendamentoTipo",
     "agendamento")
 

@@ -63,13 +63,10 @@ controller.ready(() => {
             //console.log(message.incoming_message.channelData.userData.userData.phoneNumber + " - "+ "NO FLOW ERROR" + String(err))
             await bot.cancelAllDialogs();
         }
-
-
-
     });
 
 });
-
+    
 
 
 
