@@ -1,3 +1,4 @@
+const { ResourceGroups } = require("aws-sdk");
 
 module.exports = function (controller) {
 
@@ -22,7 +23,15 @@ module.exports = function (controller) {
   }, null, 10),
     "intro")
 
-
+  flow.addQuestion(JSON.stringify({
+    "type": "question",
+    "section": "Introdução",
+    "body": "nos informe o seu endereço "
+  }),
+    async(response, flow, bot)=>{
+    },"endereço", /*resposta a ser processada pelo NLP e passada ao banco de dados*/
+    "intro")
+  
   flow.addAction("menuInicial", "intro")
 
 
@@ -38,6 +47,9 @@ module.exports = function (controller) {
       }if(response == "informação"){
         await bot.cancelAllDialogs();
         await bot.beginDialog("info")
+      }if(response == "grupo"){
+        await bot.cancelAllDialogs();
+        await bot.beginDialog("grupo")
       }
     },
     "escolhaMenu" /*variavel que segura a resposta do usuario*/,
